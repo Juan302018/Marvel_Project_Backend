@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import cl.marvel.superhero.model.Comic;
 import cl.marvel.superhero.repo.IComicRepo;
 import cl.marvel.superhero.services.IComicService;
 
+@Service
 public class ComicServiceImpl implements IComicService{
 	
 	@Autowired
