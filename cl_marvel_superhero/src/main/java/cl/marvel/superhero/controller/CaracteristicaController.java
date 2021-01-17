@@ -3,8 +3,6 @@ package cl.marvel.superhero.controller;
 import java.net.URI;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,13 +46,13 @@ public class CaracteristicaController {
 		return new ResponseEntity<Caracteristica>(caracteristicas, HttpStatus.OK);
 	}
 	@PostMapping
-	public ResponseEntity<Caracteristica> registrar(@Valid @RequestBody Caracteristica caracteristica){
+	public ResponseEntity<Caracteristica> registrar(@RequestBody Caracteristica caracteristica){
 		Caracteristica objCaracteristica = service.registrar(caracteristica);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(caracteristica.getIdCaracteristica()).toUri();
 		return ResponseEntity.created(location).build();
      }
 	@PutMapping
-	public ResponseEntity<Caracteristica> modificar(@Valid @RequestBody Caracteristica caracteristica){
+	public ResponseEntity<Caracteristica> modificar(@RequestBody Caracteristica caracteristica){
 		Caracteristica objCaracteristica = service.modificar(caracteristica);
 		return new ResponseEntity<Caracteristica>(objCaracteristica, HttpStatus.OK);
 	}

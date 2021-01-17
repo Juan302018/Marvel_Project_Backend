@@ -2,9 +2,6 @@ package cl.marvel.superhero.controller;
 
 import java.net.URI;
 import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,13 +46,13 @@ public class SuperHeroeController{
 	}
 	
 	@PostMapping
-	public ResponseEntity<SuperHeroe> registrar(@Valid @RequestBody SuperHeroe superHeroe){
+	public ResponseEntity<SuperHeroe> registrar(@RequestBody SuperHeroe superHeroe){
 		SuperHeroe objSuperHeroe = service.registrar(superHeroe);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(superHeroe.getIdSuperHeroe()).toUri();
 		return ResponseEntity.created(location).build();
      }
 	@PutMapping
-	public ResponseEntity<SuperHeroe> modificar(@Valid @RequestBody SuperHeroe superHeroe){
+	public ResponseEntity<SuperHeroe> modificar(@RequestBody SuperHeroe superHeroe){
 		SuperHeroe objSuperHeroe = service.modificar(superHeroe);
 		return new ResponseEntity<SuperHeroe>(objSuperHeroe, HttpStatus.OK);
 	}
