@@ -22,7 +22,7 @@ public class SuperHeroe implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSuperHeroe;
 	
-	@Column(name = "nombreSuperHeroe", nullable = true, length = 12)
+	@Column(name = "nombreSuperHeroe", nullable = true, length = 30)
 	private String nombreSuperHeroe;
 	
 	

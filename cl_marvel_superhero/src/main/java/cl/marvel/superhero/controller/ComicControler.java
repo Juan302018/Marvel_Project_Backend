@@ -29,7 +29,7 @@ public class ComicControler {
 	@GetMapping
 	public ResponseEntity<List<Comic>> listarComics() {
 		List<Comic> lista = service.listar();
-		if (lista.equals(true)) {
+		if (!lista.isEmpty()) {
 			return new ResponseEntity<List<Comic>>(lista, HttpStatus.OK);
 		} else {
 			throw new ModelNotFoundException("DATA NO ENCONTRADA! " + lista.isEmpty());

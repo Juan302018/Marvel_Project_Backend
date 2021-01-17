@@ -20,7 +20,7 @@ import cl.marvel.superhero.model.SuperHeroe;
 import cl.marvel.superhero.services.ISuperHeroeService;
 
 @RestController
-@RequestMapping("/superHeroe")
+@RequestMapping("/superheroe")
 public class SuperHeroeController{
 
 	@Autowired
@@ -29,7 +29,7 @@ public class SuperHeroeController{
 	@GetMapping
 	public ResponseEntity<List<SuperHeroe>> listarSuperHeroes() {
 		List<SuperHeroe> lista = service.listar();
-		if (lista.equals(true)) {
+		if (!lista.isEmpty()) {
 			return new ResponseEntity<List<SuperHeroe>>(lista, HttpStatus.OK);
 		} else {
 			throw new ModelNotFoundException("DATA NO ENCONTRADA! " + lista.isEmpty());

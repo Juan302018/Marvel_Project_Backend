@@ -31,7 +31,7 @@ public class PeliculaControler {
 	@GetMapping
 	public ResponseEntity<List<Pelicula>> listarPeliculas() {
 		List<Pelicula> lista = service.listar();
-		if (lista.equals(true)) {
+		if (!lista.isEmpty()) {
 			return new ResponseEntity<List<Pelicula>>(lista, HttpStatus.OK);
 		} else {
 			throw new ModelNotFoundException("DATA NO ENCONTRADA! " + lista.isEmpty());

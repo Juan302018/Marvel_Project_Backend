@@ -30,7 +30,7 @@ public class CaracteristicaController {
 	@GetMapping
 	public ResponseEntity<List<Caracteristica>> listarCaracteristicas() {
 		List<Caracteristica> lista = service.listar();
-		if (lista.equals(true)) {
+		if (!lista.isEmpty()) {
 			return new ResponseEntity<List<Caracteristica>>(lista, HttpStatus.OK);
 		} else {
 			throw new ModelNotFoundException("DATA NO ENCONTRADA! " + lista.isEmpty());
