@@ -16,6 +16,7 @@ public class CaracteristicaImpl implements ICaracteristicaService {
 	@Autowired
 	private ICaracteristicaRepo repo;
 
+	
 	/*
 	 * Listar Caracteristicas
 	 * @Lista todas las caracteristicas de un SuperHeroe
@@ -26,6 +27,7 @@ public class CaracteristicaImpl implements ICaracteristicaService {
 		return repo.findAll();
 	}
 
+	
 	/*
      * Listar Caracteristicas por Id
 	 * @Lista todas las caracteristicas de un SuperHeroe por Id
@@ -35,6 +37,17 @@ public class CaracteristicaImpl implements ICaracteristicaService {
 	public Caracteristica leerPorId(Integer id) {
 		Optional<Caracteristica> op = repo.findById(id);
 		return op.isPresent()?op.get(): new Caracteristica();
+	}
+	
+	
+	/*
+	 * Registrar Caracteristicas
+	 * @Registra todas las caracteristicas de un SuperHeroe
+	 */
+
+	@Override
+	public Caracteristica registrar(Caracteristica obj) {
+		return repo.save(obj);
 	}
 	
 

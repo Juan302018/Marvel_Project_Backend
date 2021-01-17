@@ -26,6 +26,7 @@ public class SuperHeroeImpl implements ISuperHeroeService {
 		return repo.findAll();
 	}
 
+	
 	/*
      * Listar SuperHeroe por Id
 	 * @Lista todos los SuperHeroes por Id
@@ -35,6 +36,17 @@ public class SuperHeroeImpl implements ISuperHeroeService {
 	public SuperHeroe leerPorId(Integer id) {
 		Optional<SuperHeroe> op = repo.findById(id);
 		return op.isPresent()?op.get(): new SuperHeroe();
+	}
+	
+	
+	/*
+	 * Registrar SuperHeroe
+	 * @Registra un SuperHeroe
+	 */
+
+	@Override
+	public SuperHeroe registrar(SuperHeroe obj) {
+		return repo.save(obj);
 	}
 
 }
