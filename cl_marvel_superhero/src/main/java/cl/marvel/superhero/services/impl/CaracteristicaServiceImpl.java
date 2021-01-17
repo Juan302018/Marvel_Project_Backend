@@ -11,7 +11,7 @@ import cl.marvel.superhero.repo.ICaracteristicaRepo;
 import cl.marvel.superhero.services.ICaracteristicaService;
 
 @Service
-public class CaracteristicaImpl implements ICaracteristicaService {
+public class CaracteristicaServiceImpl implements ICaracteristicaService {
 	
 	@Autowired
 	private ICaracteristicaRepo repo;
@@ -32,9 +32,26 @@ public class CaracteristicaImpl implements ICaracteristicaService {
 	 */
 	
 	@Override
-	public Caracteristica leerPorId(Integer id) {
+	public Caracteristica leerPorId(Long id) {
 		Optional<Caracteristica> op = repo.findById(id);
 		return op.isPresent()?op.get(): new Caracteristica();
+	}
+
+	@Override
+	public Caracteristica registrar(Caracteristica obj) {
+		
+		return repo.save(obj);
+	}
+
+	@Override
+	public Caracteristica modificar(Caracteristica obj) {
+		return repo.save(obj);
+	}
+
+	@Override
+	public boolean eliminar(Long id) {
+		repo.deleteById(id);
+		return true;
 	}
 	
 
