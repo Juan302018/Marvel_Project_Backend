@@ -12,7 +12,7 @@ import cl.marvel.superhero.services.IPeliculaService;
 
 @Service
 public class PeliculasServiceImpl implements IPeliculaService {
-	
+
 	@Autowired
 	private IPeliculaRepo repo; 
 

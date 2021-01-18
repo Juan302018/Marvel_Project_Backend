@@ -2,9 +2,6 @@ package cl.marvel.superhero.controller;
 
 import java.net.URI;
 import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +29,7 @@ public class ComicControler {
 	@GetMapping
 	public ResponseEntity<List<Comic>> listarComics() {
 		List<Comic> lista = service.listar();
-		if (lista.equals(true)) {
+		if (!lista.isEmpty()) {
 			return new ResponseEntity<List<Comic>>(lista, HttpStatus.OK);
 		} else {
 			throw new ModelNotFoundException("DATA NO ENCONTRADA! " + lista.isEmpty());
@@ -49,14 +46,14 @@ public class ComicControler {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Comic> registrar(@Valid @RequestBody Comic comic){
+	public ResponseEntity<Comic> registrar(@RequestBody Comic comic){
 		Comic objComic = service.registrar(comic);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(comic.getIdComic()).toUri();
 		return ResponseEntity.created(location).build();
      }
 	
 	@PutMapping
-	public ResponseEntity<Comic> modificar(@Valid @RequestBody Comic comic){
+	public ResponseEntity<Comic> modificar(@RequestBody Comic comic){
 		Comic objComic = service.modificar(comic);
 		return new ResponseEntity<Comic>(objComic, HttpStatus.OK);
 	}

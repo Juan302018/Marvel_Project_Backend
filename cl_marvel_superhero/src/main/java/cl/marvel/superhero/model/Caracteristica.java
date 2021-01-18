@@ -17,6 +17,11 @@ import javax.persistence.Table;
 public class Caracteristica implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8967353044506839893L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCaracteristica;

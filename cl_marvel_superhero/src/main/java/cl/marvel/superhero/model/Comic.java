@@ -16,6 +16,13 @@ import javax.persistence.Table;
 @Table(name = "comic")
 public class Comic implements Serializable{
 	
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1805301599377546651L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idComic;
