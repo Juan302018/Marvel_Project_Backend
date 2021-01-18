@@ -11,7 +11,7 @@ import cl.marvel.superhero.repo.ISuperHeroeRepo;
 import cl.marvel.superhero.services.ISuperHeroeService;
 
 @Service
-public class SuperHeroeImpl implements ISuperHeroeService {
+public class SuperHeroeServiceImpl implements ISuperHeroeService {
 
 	@Autowired
 	private ISuperHeroeRepo repo;
@@ -33,7 +33,7 @@ public class SuperHeroeImpl implements ISuperHeroeService {
 	 */
 	
 	@Override
-	public SuperHeroe leerPorId(Integer id) {
+	public SuperHeroe leerPorId(Long id) {
 		Optional<SuperHeroe> op = repo.findById(id);
 		return op.isPresent()?op.get(): new SuperHeroe();
 	}
@@ -44,9 +44,21 @@ public class SuperHeroeImpl implements ISuperHeroeService {
 	 * @Registra un SuperHeroe
 	 */
 
+	
 	@Override
 	public SuperHeroe registrar(SuperHeroe obj) {
 		return repo.save(obj);
+	}
+
+	@Override
+	public SuperHeroe modificar(SuperHeroe obj) {
+		return repo.save(obj);
+	}
+
+	@Override
+	public boolean eliminar(Long id) {
+		repo.deleteById(id);
+		return true;
 	}
 
 }

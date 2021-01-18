@@ -1,5 +1,7 @@
 package cl.marvel.superhero.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -12,8 +14,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "caracteristica")
-public class Caracteristica {
+public class Caracteristica implements Serializable{
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCaracteristica;

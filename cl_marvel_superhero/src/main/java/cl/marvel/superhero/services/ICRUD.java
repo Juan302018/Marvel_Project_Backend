@@ -3,10 +3,14 @@ package cl.marvel.superhero.services;
 import java.util.List;
 
 public interface ICRUD<M> {
-
-	M registrar(M obj);
 	
-	List<M> listar();
+	M registrar(M obj);
 
-	M leerPorId(Integer id);
+	List<M> listar();
+	
+	M modificar(M obj);
+
+	M leerPorId(Long id);
+	
+	boolean eliminar(Long id);
 }

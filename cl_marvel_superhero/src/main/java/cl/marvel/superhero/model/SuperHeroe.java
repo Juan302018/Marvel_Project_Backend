@@ -1,5 +1,7 @@
 package cl.marvel.superhero.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,14 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "superHeroe")
-public class SuperHeroe {
-	
+public class SuperHeroe implements Serializable{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idSuperHeroe;
-	
-	@Column(name = "idApiMarvelComics", nullable = true, length = 6)
-	private Long idApiMarvelComics;
 	
 	@Column(name = "nombreSuperHeroe", nullable = true, length = 12)
 	private String nombreSuperHeroe;
@@ -32,15 +31,7 @@ public class SuperHeroe {
 	public void setIdSuperHeroe(Long idSuperHeroe) {
 		this.idSuperHeroe = idSuperHeroe;
 	}
-
-	public Long getIdApiMarvelComics() {
-		return idApiMarvelComics;
-	}
-
-	public void setIdApiMarvelComics(Long idApiMarvelComics) {
-		this.idApiMarvelComics = idApiMarvelComics;
-	}
-
+	
 	public String getNombreSuperHeroe() {
 		return nombreSuperHeroe;
 	}
