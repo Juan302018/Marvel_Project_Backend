@@ -25,6 +25,8 @@ public class SuperHeroe implements Serializable{
 	@Column(name = "nombreSuperHeroe", nullable = true, length = 30)
 	private String nombreSuperHeroe;
 	
+	@Column(name = "super_heroe", nullable = true, length = 50)
+	private String superHeroe;
 	
 	public SuperHeroe() {
 	}
@@ -44,6 +46,13 @@ public class SuperHeroe implements Serializable{
 	public void setNombreSuperHeroe(String nombreSuperHeroe) {
 		this.nombreSuperHeroe = nombreSuperHeroe;
 	}
-	
+
+	public String getSuperHeroe() {
+		return superHeroe;
+	}
+
+	public void setSuperHeroe(String superHeroe) {
+		this.superHeroe = superHeroe;
+	}
 	
 }
